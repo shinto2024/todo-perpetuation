@@ -7,7 +7,7 @@ const tasks = new Array();
 * @param {string} task
 */
 function todo(task) {
-    tasks.push({ name: task, state: false });
+  tasks.push({ name: task, state: false });
 }
 
 /**
@@ -16,7 +16,7 @@ function todo(task) {
 * @return {boolean} 完了したかどうか
 */
 function isDone(taskAndIsDonePair) {
-    return taskAndIsDonePair.state;
+  return taskAndIsDonePair.state;
 }
 
 /**
@@ -25,7 +25,7 @@ function isDone(taskAndIsDonePair) {
 * @return {boolean} 完了していないかどうか
 */
 function isNotDone(taskAndIsDonePair) {
-    return !isDone(taskAndIsDonePair);
+  return !isDone(taskAndIsDonePair);
 }
 
 /**
@@ -33,9 +33,9 @@ function isNotDone(taskAndIsDonePair) {
 * @return {array}
 */
 function list() {
-    return tasks
-        .filter(isNotDone)
-        .map(t => t.name);
+  return tasks
+    .filter(isNotDone)
+    .map(t => t.name);
 }
 
 /**
@@ -43,10 +43,10 @@ function list() {
 * @param {string} task
 */
 function done(task) {
-    const indexFound = tasks.findIndex(t => t.name === task);
-    if (indexFound != -1) {
-        tasks[indexFound].state = true;
-    }
+  const indexFound = tasks.findIndex(t => t.name === task);
+  if (indexFound != -1) {
+    tasks[indexFound].state = true;
+  }
 }
 
 /**
@@ -54,9 +54,9 @@ function done(task) {
 * @return {array}
 */
 function donelist() {
-    return tasks
-        .filter(isDone)
-        .map(t => t.name);
+  return tasks
+    .filter(isDone)
+    .map(t => t.name);
 }
 
 /**
@@ -64,10 +64,10 @@ function donelist() {
 * @param {string} task
 */
 function del(task) {
-    const indexFound = tasks.findIndex(t => t.name === task);
-    if (indexFound != -1) {
-        tasks.splice(indexFound, 1);
-    }
+  const indexFound = tasks.findIndex(t => t.name === task);
+  if (indexFound != -1) {
+    tasks.splice(indexFound, 1);
+  }
 }
 
 module.exports = {
