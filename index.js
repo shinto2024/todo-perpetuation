@@ -11,8 +11,8 @@ function todo(task) {
 }
 
 /**
-* タスクと完了したかどうかが含まれる配列を受け取り、完了したかを返す
-* @param {array} taskAndIsDonePair
+* タスクと完了したかどうかが含まれるオブジェクトを受け取り、完了したかを返す
+* @param {object} taskAndIsDonePair
 * @return {boolean} 完了したかどうか
 */
 function isDone(taskAndIsDonePair) {
@@ -20,8 +20,8 @@ function isDone(taskAndIsDonePair) {
 }
 
 /**
-* タスクと完了したかどうかが含まれる配列を受け取り、完了していないかを返す
-* @param {array} taskAndIsDonePair
+* タスクと完了したかどうかが含まれるオブジェクトを受け取り、完了していないかを返す
+* @param {object} taskAndIsDonePair
 * @return {boolean} 完了していないかどうか
 */
 function isNotDone(taskAndIsDonePair) {
