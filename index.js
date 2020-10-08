@@ -44,7 +44,7 @@ function list() {
 */
 function done(task) {
   const indexFound = tasks.findIndex(t => t.name === task);
-  if (indexFound != -1) {
+  if (indexFound !== -1) {
     tasks[indexFound].state = true;
   }
 }
@@ -65,7 +65,7 @@ function donelist() {
 */
 function del(task) {
   const indexFound = tasks.findIndex(t => t.name === task);
-  if (indexFound != -1) {
+  if (indexFound !== -1) {
     tasks.splice(indexFound, 1);
   }
 }
