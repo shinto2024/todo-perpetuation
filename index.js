@@ -6,7 +6,7 @@ const tasks = new Array();
 * TODOを追加する
 * @param {string} task
 */
-function todo(task) {
+function add(task) {
   tasks.push({ name: task, state: false });
 }
 
@@ -71,7 +71,7 @@ function del(task) {
 }
 
 module.exports = {
-  todo,
+  add,
   list,
   done,
   donelist,
