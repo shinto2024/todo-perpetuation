@@ -16,7 +16,7 @@ function add(task) {
 */
 function list() {
   return tasks
-    .filter(task => !task.state)
+    .filter(t => !t.state)
     .map(t => t.name);
 }
 
@@ -37,7 +37,7 @@ function done(task) {
  */
 function donelist() {
   return tasks
-    .filter(task => task.state)
+    .filter(t => t.state)
     .map(t => t.name);
 }
 
