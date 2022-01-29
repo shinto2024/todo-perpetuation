@@ -16,8 +16,8 @@ function add(task) {
 */
 function list() {
   return tasks
-    .filter(t => !t.state)
-    .map(t => t.name);
+    .filter(item => !item.state)
+    .map(item => item.name);
 }
 
 /**
@@ -25,7 +25,7 @@ function list() {
  * @param {string} task
  */
 function done(task) {
-  const indexFound = tasks.findIndex(t => t.name === task);
+  const indexFound = tasks.findIndex(item => item.name === task);
   if (indexFound !== -1) {
     tasks[indexFound].state = true;
   }
@@ -37,8 +37,8 @@ function done(task) {
  */
 function donelist() {
   return tasks
-    .filter(t => t.state)
-    .map(t => t.name);
+    .filter(item => item.state)
+    .map(item => item.name);
 }
 
 /**
@@ -46,7 +46,7 @@ function donelist() {
  * @param {string} task
  */
 function del(task) {
-  const indexFound = tasks.findIndex(t => t.name === task);
+  const indexFound = tasks.findIndex(item => item.name === task);
   if (indexFound !== -1) {
     tasks.splice(indexFound, 1);
   }
