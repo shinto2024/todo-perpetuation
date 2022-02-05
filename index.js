@@ -4,10 +4,10 @@ const tasks = [];
 
 /**
  * TODOを追加する
- * @param {string} task
+ * @param {string} taskName
  */
-function add(task) {
-  tasks.push({ name: task, state: false });
+function add(taskName) {
+  tasks.push({ name: taskName, state: false });
 }
 
 /**
@@ -16,16 +16,16 @@ function add(task) {
 */
 function list() {
   return tasks
-    .filter(item => !item.state)
-    .map(item => item.name);
+    .filter(task => !task.state)
+    .map(task => task.name);
 }
 
 /**
  * TODOを完了状態にする
- * @param {string} task
+ * @param {string} taskName
  */
-function done(task) {
-  const indexFound = tasks.findIndex(item => item.name === task);
+function done(taskName) {
+  const indexFound = tasks.findIndex(task => task.name === taskName);
   if (indexFound !== -1) {
     tasks[indexFound].state = true;
   }
@@ -37,16 +37,16 @@ function done(task) {
  */
 function donelist() {
   return tasks
-    .filter(item => item.state)
-    .map(item => item.name);
+    .filter(task => task.state)
+    .map(task => task.name);
 }
 
 /**
  * 項目を削除する
- * @param {string} task
+ * @param {string} taskName
  */
-function del(task) {
-  const indexFound = tasks.findIndex(item => item.name === task);
+function del(taskName) {
+  const indexFound = tasks.findIndex(task => task.name === taskName);
   if (indexFound !== -1) {
     tasks.splice(indexFound, 1);
   }
