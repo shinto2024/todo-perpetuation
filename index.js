@@ -1,5 +1,5 @@
 'use strict';
-// { name: タスクの文字列, state: 完了しているかどうかの真偽値 }
+// { name: タスクの名前, state: 完了しているかどうかの真偽値 }
 const tasks = [];
 
 /**
@@ -11,9 +11,9 @@ function add(taskName) {
 }
 
 /**
-* タスクの一覧の配列を取得する
-* @return {array}
-*/
+ * タスクの一覧の配列を取得する
+ * @return {array}
+ */
 function list() {
   return tasks
     .filter(task => !task.state)
