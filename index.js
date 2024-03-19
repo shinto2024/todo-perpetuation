@@ -1,6 +1,23 @@
 'use strict';
 // { name: タスクの名前, isDone: 完了しているかどうかの真偽値 }
-const tasks = [];
+let tasks = [];
+const fs = require('node:fs');
+const fileName = './tasks.json';
+
+// 同期的にファイルから復元
+try {
+  const data = fs.readFileSync(fileName, 'utf8');
+  tasks = JSON.parse(data);
+} catch (err) {
+  console.log(`${fileName}から復元できませんでした`);
+}
+
+/**
+ * タスクをファイルに保存する
+ */
+function saveTasks() {
+  fs.writeFileSync(fileName, JSON.stringify(tasks), 'utf8');
+}
 
 /**
  * タスクを追加する
@@ -8,6 +25,7 @@ const tasks = [];
  */
 function add(taskName) {
   tasks.push({ name: taskName, isDone: false });
+  saveTasks();
 }
 
 /**
@@ -28,6 +46,7 @@ function done(taskName) {
   const indexFound = tasks.findIndex(task => task.name === taskName);
   if (indexFound !== -1) {
     tasks[indexFound].isDone = true;
+    saveTasks();
   }
 }
 
@@ -49,6 +68,7 @@ function del(taskName) {
   const indexFound = tasks.findIndex(task => task.name === taskName);
   if (indexFound !== -1) {
     tasks.splice(indexFound, 1);
+    saveTasks();
   }
 }
 
